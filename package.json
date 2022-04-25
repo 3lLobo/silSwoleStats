@@ -7,6 +7,7 @@
     "@babel/plugin-transform-react-jsx": "^7.17.3",
     "@chakra-ui/icons": "^1.0.14",
     "@chakra-ui/react": "^1.6.5",
+    "@chakra-ui/storybook-addon": "^1.0.3",
     "@chakra-ui/system": "^1.12.1",
     "@chakra-ui/theme-tools": "^1.1.9",
     "@emotion/cache": "^11.7.1",
@@ -15,8 +16,12 @@
     "@fontsource/open-sans": "^4.5.0",
     "@fontsource/raleway": "^4.5.0",
     "@fontsource/roboto": "^4.5.0",
+    "@storybook/addons": "^6.4.22",
+    "@supabase/supabase-js": "^1.35.2",
+    "@supabase/ui": "^0.36.5",
     "apexcharts": "^3.27.3",
     "babel": "^6.23.0",
+    "babel-loader": "^8",
     "classnames": "2.3.1",
     "eslint": "^8.14.0",
     "framer-motion": "^4.1.17",
@@ -31,6 +36,7 @@
     "react-bootstrap-sweetalert": "5.2.0",
     "react-datetime": "3.1.1",
     "react-dom": "16.14.0",
+    "react-error-overlay": "^6",
     "react-github-btn": "^1.2.1",
     "react-icons": "^4.2.0",
     "react-jvectormap": "0.0.16",
@@ -53,20 +59,34 @@
     "deploy": "npm run build",
     "lint:check": "eslint . --ext=js,jsx;  exit 0",
     "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook -s public "
   },
   "optionalDependencies": {
     "@babel/core": "7.14.0",
-    "typescript": "4.2.4"
+    "typescript": "^4.6.3"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx-source": "^7.14.5",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/builder-webpack5": "^6.4.22",
+    "@storybook/manager-webpack5": "^6.4.22",
+    "@storybook/node-logger": "^6.4.22",
+    "@storybook/preset-create-react-app": "^4.1.0",
+    "@storybook/react": "^6.4.22",
+    "@storybook/testing-library": "^0.0.11",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",
+    "postcss": "^8.4.12",
     "prettier": "2.2.1",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.0.24",
+    "webpack": "^5.72.0"
   },
   "browserslist": {
     "production": [
@@ -78,6 +98,18 @@
       "cover 99.8%",
       "not dead",
       "not OperaMini all"
+    ]
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   }
 }
