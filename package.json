@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/plugin-syntax-flow": "^7.16.7",
     "@babel/plugin-transform-react-jsx": "^7.17.3",
+    "@babel/runtime": "^7.17.9",
     "@chakra-ui/icons": "^1.0.14",
     "@chakra-ui/react": "^1.6.5",
     "@chakra-ui/storybook-addon": "^1.0.3",

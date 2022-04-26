@@ -8,14 +8,14 @@ import { tablesTableData, dashboardTableData } from "variables/general";
 function Tables() {
   return (
     <Flex direction='column' pt={{ base: "120px", md: "75px" }}>
-      <Authors
+      {/* <Authors
         title={"Authors Table"}
         captions={["Author", "Function", "Status", "Employed", ""]}
         data={tablesTableData}
-      />
+      /> */}
       <Projects
-        title={"Projects Table"}
-        captions={["Companies", "Budget", "Status", "Completion", ""]}
+        title={"Weekly check In with Sil"}
+        captions={["Attribute", "Value", "Status", "Completion", ""]}
         data={dashboardTableData}
       />
     </Flex>
