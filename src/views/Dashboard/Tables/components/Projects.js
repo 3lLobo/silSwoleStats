@@ -16,6 +16,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import TablesProjectRow from "components/Tables/TablesProjectRow";
 import React from "react";
 
+// ✅
 const Projects = ({ title, captions, data }) => {
   const textColor = useColorModeValue("gray.700", "white");
   return (
