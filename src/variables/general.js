@@ -298,9 +298,10 @@ export const invoicesData = [
   {
     date: "March, 01, 2020",
     code: "#MS-415646",
-    price: "$180",
+    price: "$1800",
     logo: FaFilePdf,
     format: "PDF",
+    paid: "⏺️",
   },
   {
     date: "February, 10, 2020",
@@ -308,27 +309,31 @@ export const invoicesData = [
     price: "$250",
     logo: FaFilePdf,
     format: "PDF",
+    paid: "✅",
   },
   {
     date: "April, 05, 2020",
     code: "#FB-212562",
-    price: "$560",
+    price: "$5600",
     logo: FaFilePdf,
     format: "PDF",
+    paid: "✅",
   },
   {
     date: "June, 25, 2019",
     code: "#QW-103578",
-    price: "$120",
+    price: "$1200",
     logo: FaFilePdf,
     format: "PDF",
+    paid: "✅",
   },
   {
     date: "March, 01, 2019",
     code: "#AR-803481",
-    price: "$300",
+    price: "$3000",
     logo: FaFilePdf,
     format: "PDF",
+    paid: "✅",
   },
 ];
 

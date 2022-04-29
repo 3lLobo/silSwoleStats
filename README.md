@@ -61,3 +61,8 @@ Edit the template [here](src/views/Dashboard/Tables/index.js)
 ### Billing
 
 Shows the current plan and price.
+
+
+## Notes 2 myself
+
+The ESLint configuration file allows to specify which rules per plugin are applied. If it is set to "recommended", fix it by changing it to "all"!

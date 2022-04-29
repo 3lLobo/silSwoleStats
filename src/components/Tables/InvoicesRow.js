@@ -11,11 +11,14 @@ import React from "react";
 
 function InvoicesRow(props) {
   const textColor = useColorModeValue("gray.700", "white");
-  const { date, code, price, format, logo } = props;
+  const { date, code, price, format, logo, paid } = props;
 
   return (
     <Flex my={{ sm: "1rem", xl: "10px" }} alignItems="center">
-      <Flex direction="column">
+      <Text fontSize="md" color={textColor} fontWeight="bold">
+          {paid}
+        </Text>
+      <Flex direction="column">  
         <Text fontSize="md" color={textColor} fontWeight="bold">
           {date}
         </Text>

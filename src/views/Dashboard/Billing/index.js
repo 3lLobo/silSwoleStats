@@ -34,15 +34,15 @@ function Billing() {
             gap='26px'>
             <CreditCard
               backgroundImage={BackgroundCard1}
-              title={"Purity UI"}
-              number={"7812 2139 0823 XXXX"}
+              title={" SIL VISSER COACHING"}
+              number={"Platinum program"}
               validity={{
-                name: "VALID THRU",
+                name: "active ☑️",
                 data: "05/24",
               }}
               cvv={{
-                name: "CVV",
-                code: "09x",
+                name: "01-01-2020",
+                code: "01-11-2022",
               }}
               icon={
                 <Icon
@@ -55,18 +55,18 @@ function Billing() {
             />
             <PaymentStatistics
               icon={<Icon h={"24px"} w={"24px"} color='white' as={FaWallet} />}
-              title={"Salary"}
-              description={"Belong interactive"}
-              amount={2000}
+              title={"Training"}
+              description={"3 times weekly"}
+              amount={500}
             />
             <PaymentStatistics
               icon={<Icon h={"24px"} w={"24px"} color='white' as={FaPaypal} />}
-              title={"Paypal"}
-              description={"Freelance Payment"}
-              amount={4550}
+              title={"Nutrition"}
+              description={"Full nutrition plan"}
+              amount={300}
             />
           </Grid>
-          <PaymentMethod
+          {/* <PaymentMethod
             title={"Payment Method"}
             mastercard={{
               icon: <MastercardIcon w='100%' h='100%' />,
@@ -76,18 +76,12 @@ function Billing() {
               icon: <VisaIcon w='100%' h='100%' />,
               number: "7812 2139 0823 XXXX",
             }}
-          />
+          /> */}
         </Box>
         <Invoices title={"Invoices"} data={invoicesData} />
       </Grid>
       <Grid templateColumns={{ sm: "1fr", lg: "1.6fr 1.2fr" }}>
-        <BillingInformation title={"Billing Information"} data={billingData} />
-        <Transactions
-          title={"Your Transactions"}
-          date={"23 - 30 March"}
-          newestTransactions={newestTransactions}
-          olderTransactions={olderTransactions}
-        />
+        {/* <BillingInformation title={"Billing Information"} data={billingData} /> */}
       </Grid>
     </Flex>
   );

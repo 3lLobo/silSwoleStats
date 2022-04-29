@@ -36,6 +36,7 @@ const Invoices = ({ title, data }) => {
           {data.map((row) => {
             return (
               <InvoicesRow
+              paid={row.paid}
                 date={row.date}
                 code={row.code}
                 price={row.price}

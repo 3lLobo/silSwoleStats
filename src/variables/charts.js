@@ -1,6 +1,6 @@
 export const barChartData = [
   {
-    name: "Sales",
+    name: "Gainz",
     data: [330, 250, 110, 300, 490, 350, 270, 130, 425],
   },
 ];
@@ -85,12 +85,12 @@ export const barChartOptions = {
 
 export const lineChartData = [
   {
-    name: "Mobile apps",
-    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+    name: "Muscle",
+    data: [5, 4, 3, 9, 11, 12, 14, 23, 50],
   },
   {
-    name: "Websites",
-    data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+    name: "Fat",
+    data: [30, 30, 40, 14, 29, 29, 34, 23, 30],
   },
 ];
 
