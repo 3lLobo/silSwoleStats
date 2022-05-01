@@ -58,6 +58,8 @@ table structure should looks like this:
 Here we want either the weekly checkin, or the food/meelplan graphs.
 Edit the template [here](src/views/Dashboard/Tables/index.js)
 
+[ApexChart](https://apexcharts.com/docs/series/) dicumentation.
+
 ### Billing
 
 Shows the current plan and price.
@@ -65,4 +67,7 @@ Shows the current plan and price.
 
 ## Notes 2 myself
 
-The ESLint configuration file allows to specify which rules per plugin are applied. If it is set to "recommended", fix it by changing it to "all"!
+Don't try to configure ESLint your self!!! Use `npx create-next-app` instead and stick to the default.
+Same for stroybook. 
+
+To redicrect automatically from one page to another use [middleware](https://nextjs.org/docs/messages/middleware-relative-urls).

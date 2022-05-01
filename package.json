@@ -1,11 +1,15 @@
 {
-  "name": "sil-swole-stats",
-  "version": "0.1",
+  "name": "swole-stats",
+  "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "@babel/plugin-syntax-flow": "^7.16.7",
-    "@babel/plugin-transform-react-jsx": "^7.17.3",
-    "@babel/runtime": "^7.17.9",
+    "@apollo/client": "^3.5.10",
     "@chakra-ui/icons": "^1.0.14",
     "@chakra-ui/react": "^1.6.5",
     "@chakra-ui/storybook-addon": "^1.0.3",
@@ -21,51 +25,19 @@
     "@supabase/supabase-js": "^1.35.2",
     "@supabase/ui": "^0.36.5",
     "apexcharts": "^3.27.3",
-    "babel": "^6.23.0",
-    "babel-loader": "^8",
     "classnames": "2.3.1",
-    "eslint-plugin-prettier": "^4.0.0",
     "framer-motion": "^4.1.17",
-    "match-sorter": "6.3.0",
-    "moment": "2.29.1",
-    "node-sass": "7.0.1",
-    "nouislider": "15.0.0",
+    "graphql": "^16.4.0",
+    "next": "12.1.5",
     "prop-types": "^15.8.1",
-    "react": "16.14.0",
+    "react": "18.1.0",
     "react-apexcharts": "^1.3.9",
-    "react-big-calendar": "0.33.2",
-    "react-bootstrap-sweetalert": "5.2.0",
-    "react-datetime": "3.1.1",
-    "react-dom": "16.14.0",
-    "react-error-overlay": "6.0.11",
+    "react-big-calendar": "^0.33.2",
+    "react-bootstrap-sweetalert": "^5.2.0",
+    "react-dom": "18.1.0",
     "react-icons": "^4.2.0",
-    "react-jvectormap": "0.0.16",
-    "react-router-dom": "5.2.1",
-    "react-scripts": "5.0.1",
-    "react-swipeable-views": "0.14.0",
-    "react-table": "7.7.0",
-    "react-tagsinput": "3.19.0",
-    "stylis": "^4.0.13",
-    "stylis-plugin-rtl": "^2.1.1"
-  },
-  "resolutions": {
-    "react-error-overlay": "6.0.9"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && gulp licenses",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "npm run build",
-    "lint:check": "eslint . --ext=js,jsx;  exit 0",
-    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s public "
-  },
-  "optionalDependencies": {
-    "@babel/core": "7.14.0",
-    "typescript": "^4.6.3"
+    "react-scripts": "^5.0.1",
+    "react-table": "^7.7.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.22",
@@ -78,38 +50,12 @@
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
-    "eslint": "^8.14.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-react": "^7.29.4",
-    "gulp": "4.0.2",
-    "gulp-append-prepend": "1.0.9",
+    "babel-loader": "^8.2.5",
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.5",
     "postcss": "^8.4.12",
     "prettier": "^2.2.1",
     "tailwindcss": "^3.0.24",
     "webpack": "^5.72.0"
-  },
-  "browserslist": {
-    "production": [
-      "cover 99.8%",
-      "not dead",
-      "not OperaMini all"
-    ],
-    "development": [
-      "cover 99.8%",
-      "not dead",
-      "not OperaMini all"
-    ]
-  },
-  "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
   }
 }
