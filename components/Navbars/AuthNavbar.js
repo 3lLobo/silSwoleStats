@@ -140,6 +140,7 @@ export default function AuthNavbar(props) {
       left="50%"
       transform="translate(-50%, 0px)"
       background={navbarBg}
+      // bg="slategray"
       border={navbarBorder}
       boxShadow={navbarShadow}
       filter={navbarFilter}
@@ -153,7 +154,7 @@ export default function AuthNavbar(props) {
       alignItems="center"
     >
       <Flex w="100%" justifyContent={{ sm: "start", lg: "space-between" }}>
-        <Box
+        {/* <Box
           ms={{ base: "auto", lg: "0px" }}
           display={{ base: "flex", lg: "none" }}
         >
@@ -164,24 +165,8 @@ export default function AuthNavbar(props) {
             // logo={logo}
             {...rest}
           />
-        </Box>
+        </Box> */}
         {linksAuth}
-        <Link href="https://creative-tim.com/product/purity-ui-dashboard">
-          <Button
-            bg={bgButton}
-            color={colorButton}
-            fontSize="xs"
-            variant="no-hover"
-            borderRadius="35px"
-            px="30px"
-            display={{
-              sm: "none",
-              lg: "flex",
-            }}
-          >
-            Free Download
-          </Button>
-        </Link>
       </Flex>
     </Flex>
   );

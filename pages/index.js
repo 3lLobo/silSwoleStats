@@ -48,16 +48,3 @@ const Index = () => {
 }
 
 export default Index
-
-
-
-// ReactDOM.render(
-//   <HashRouter>
-//     <Switch>
-//       <Route path={`/auth`} component={AuthLayout} />
-//       <Route path={`/admin`} component={AdminLayout} />
-//       <Redirect from={`/`} to="/admin/dashboard" />
-//     </Switch>
-//   </HashRouter>,
-//   // document.getElementById("root")
-// );

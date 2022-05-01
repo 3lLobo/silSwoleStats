@@ -14,6 +14,7 @@ import {
   MenuList,
   Text,
   useColorModeValue,
+  DarkMode
 } from "@chakra-ui/react";
 // Assets
 // import avatar1 from "/assets/img/avatars/avatar1.png";
@@ -106,14 +107,14 @@ export default function HeaderLinks(props) {
           <Text display={{ sm: "none", md: "flex" }}>Sign In</Text>
         </Button>
       </Link> */}
-      <SidebarResponsive
+      {/* <SidebarResponsive
         logoText={props.logoText}
         secondary={props.secondary}
         routes={routes}
         // logo={logo}
         {...rest}
-      />
-      <SettingsIcon
+      /> */}
+      {/* <SettingsIcon
         cursor="pointer"
         ms={{ base: "16px", xl: "0px" }}
         me="16px"
@@ -122,34 +123,35 @@ export default function HeaderLinks(props) {
         color={navbarIcon}
         w="18px"
         h="18px"
-      />
-      <Menu>
-        <MenuButton>
-          <BellIcon color={navbarIcon} w="18px" h="18px" />
-        </MenuButton>
-        <MenuList p="16px 8px">
-          <Flex flexDirection="column">
-            <MenuItem borderRadius="8px" mb="10px">
-              <ItemContent
-                time="13 minutes ago"
-                // info="from Alicia"
-                boldInfo="Weekly check in due!"
-                key="1"
+      /> */}
+      <DarkMode>
+        <Menu>
+          <MenuButton>
+            <BellIcon color={navbarIcon} w="18px" h="18px" />
+          </MenuButton>
+          <MenuList p="16px 8px">
+            <Flex flexDirection="column">
+              <MenuItem borderRadius="8px" mb="10px">
+                <ItemContent
+                  time="13 minutes ago"
+                  // info="from Alicia"
+                  boldInfo="Weekly check in due!"
+                  key="1"
                 // aName="Alicia"
                 // aSrc={avatar1}
-              />
-            </MenuItem>
-            <MenuItem borderRadius="8px" mb="10px">
-              <ItemContent
-                time="2 days ago"
-                info=""
-                boldInfo="Mealplan update!"
-                key="2"
+                />
+              </MenuItem>
+              <MenuItem borderRadius="8px" mb="10px">
+                <ItemContent
+                  time="2 days ago"
+                  info=""
+                  boldInfo="Mealplan update!"
+                  key="2"
                 // aName="Josh Henry"
                 // aSrc={avatar2}
-              />
-            </MenuItem>
-            {/*<MenuItem borderRadius="8px">
+                />
+              </MenuItem>
+              {/*<MenuItem borderRadius="8px">
               <ItemContent
                 time="3 days ago"
                 info="Payment succesfully completed!"
@@ -158,9 +160,10 @@ export default function HeaderLinks(props) {
                 // aSrc={avatar3}
               />
             </MenuItem> */}
-          </Flex>
-        </MenuList>
-      </Menu>
+            </Flex>
+          </MenuList>
+        </Menu>
+      </DarkMode>
     </Flex >
   );
 }
