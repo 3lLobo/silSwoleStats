@@ -1,7 +1,7 @@
 // import React from 'react';
 import { data } from './data';
 
-import { BarChart } from './circle';
+import BarChart from '../../components/D3/circle';
 
 export default {
   title: 'd3/BarChart',
