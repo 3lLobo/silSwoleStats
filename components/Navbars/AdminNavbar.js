@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
-import AdminNavbarLinks from "./AdminNavbarLinks";
+import AdminNavbarLinks from "../FixedPlugin/notificationPlugin";
 
 export default function AdminNavbar(props) {
   const [scrolled, setScrolled] = useState(false);
@@ -72,12 +72,13 @@ export default function AdminNavbar(props) {
 
   return (
     <Flex
-      position={navbarPosition}
+      position="fixed"
       boxShadow={navbarShadow}
-      bg={navbarBg}
+      // bg={navbarBg}
       borderColor={navbarBorder}
       filter={navbarFilter}
       backdropFilter={navbarBackdrop}
+      bg="black"
       borderWidth="1.5px"
       borderStyle="solid"
       transitionDelay="0s, 0s, 0s, 0s"

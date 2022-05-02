@@ -31,7 +31,10 @@ export default function Dashboard() {
   const iconBoxInside = useColorModeValue("white", "white");
 
   return (
-    <Flex flexDirection='column' pt={{ base: "120px", md: "75px" }}>
+    <Flex 
+    flexDirection='column' 
+    // pt={{ base: "120px", md: "75px" }}
+    >
       {/* <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
         <MiniStatistics
           title={"Today's Moneys"}
@@ -88,8 +91,9 @@ export default function Dashboard() {
       <Grid
         templateColumns={{ sm: "1fr", lg: "1.3fr 1.7fr" }}
         templateRows={{ sm: "repeat(2, 1fr)", lg: "1fr" }}
-        gap='24px'
-        mb={{ lg: "26px" }}>
+        gap='11'
+        mb={{ lg: "26px" }}
+        >
         <ActiveUsers
           title={"Big4 Lifts"}
           percentage={6}

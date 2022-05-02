@@ -4,12 +4,10 @@ import {
   Button,
   Flex,
   HStack,
-  Link as ChakraLink,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import {
-  CreativeTimLogo,
   DocumentIcon,
   HomeIcon,
   PersonIcon,
@@ -19,7 +17,6 @@ import SidebarResponsive from "../Sidebar/SidebarResponsive";
 import PropTypes from "prop-types";
 import React from "react";
 import Link from "next/link";
-import routes from "../../pages/routes.js";
 
 
 export default function AuthNavbar(props) {
@@ -28,10 +25,7 @@ export default function AuthNavbar(props) {
     setOpen(!open);
   };
   const { logo, logoText, secondary, ...rest } = props;
-  // verifies if routeName is the one active (in browser input)
-  const activeRoute = (routeName) => {
-    return window.location.href.indexOf(routeName) > -1 ? true : false;
-  };
+
   // Chakra color mode
   let navbarIcon = useColorModeValue("gray.700", "gray.200");
   let mainText = useColorModeValue("gray.700", "gray.200");

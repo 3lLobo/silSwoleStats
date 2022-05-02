@@ -8,14 +8,11 @@ import { supabase } from '../utils/initSupabase'
 import { myTheme } from '../theme/theme'
 import MainPanel from '../components/Layout/MainPanel'
 import Sidebar from '../components/Sidebar'
-import FixedPlugin from '../components/FixedPlugin/FixedPlugin'
-import Configurator from '../components/Configurator/Configurator'
-
+// import FixedPlugin from '../components/FixedPlugin/FixedPlugin'
+import Notifications from '../components/FixedPlugin/notificationPlugin'
+import ToggleMode from '../components/FixedPlugin/toggleMode'
 import routes from './routes'
-import { getActiveNavbar, getActiveRoute } from '../utils/sidebarFncs'
-import AdminNavbar from '../components/Navbars/AdminNavbar'
-import 'tailwindcss/tailwind.css'
-import { useRouter } from 'next/router'
+import { getActiveNavbar } from '../utils/sidebarFncs'
 import { useEffect, useState } from 'react'
 
 export default function MyApp({ Component, pageProps }) {
@@ -34,7 +31,7 @@ export default function MyApp({ Component, pageProps }) {
 
 
   return (
-    <main className={'dark'}>
+    <main>
       <UserContextProvider>
         <ApolloProvider client={supabase}>
           <ChakraProvider theme={myTheme}>
@@ -45,37 +42,19 @@ export default function MyApp({ Component, pageProps }) {
               sidebarVariant="opaque"
             />
             <MainPanel
+              p="11"
               w={{
                 base: "100%",
                 xl: "calc(100% - 275px)",
               }}
             >
               <Portal>
-                <AdminNavbar
-                  onOpen={onOpen}
-                  secondary={getActiveNavbar(routes)}
-                  fixed={fixed}
-                // {...rest}
-                />
+                <ToggleMode />
               </Portal>
               <Portal>
-                <FixedPlugin
-                  secondary={getActiveNavbar(routes)}
-                  fixed={fixed}
-                  onOpen={onOpen}
+                <Notifications
                 />
               </Portal>
-              <Configurator
-                secondary={getActiveNavbar(routes)}
-                isOpen={isOpen}
-                onClose={onClose}
-                isChecked={fixed}
-                onSwitch={(value) => {
-                  setFixed(value);
-                }}
-                // onOpaque={() => setSidebarVariant("opaque")}
-                // onTransparent={() => setSidebarVariant("transparent")}
-              />
               <Component {...pageProps} />
             </MainPanel>
           </ChakraProvider>

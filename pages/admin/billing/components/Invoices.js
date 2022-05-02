@@ -13,8 +13,9 @@ const Invoices = ({ title, data }) => {
   return (
     <Card
       p='22px'
-      my={{ sm: "24px", lg: "0px" }}
-      ms={{ sm: "0px", lg: "24px" }}>
+      // my={{ sm: "24px", lg: "0px" }}
+      // ms={{ sm: "0px", lg: "24px" }}
+      >
       <CardHeader>
         <Flex justify='space-between' align='center' mb='1rem' w='100%'>
           <Text fontSize='lg' color={textColor} fontWeight='bold'>
@@ -42,6 +43,7 @@ const Invoices = ({ title, data }) => {
                 price={row.price}
                 logo={row.logo}
                 format={row.format}
+                key={row.code}
               />
             );
           })}
