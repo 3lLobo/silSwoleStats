@@ -166,28 +166,23 @@ const SidebarContent = ({ logoText, routes }) => {
     return (
         <>
             <Box pt={'25px'} mb="12px">
-                {/* <Link
-        href={`${process.env.PUBLIC_URL}/#/`}
-        target="_blank"
-        display="flex"
-        lineHeight="100%"
-        mb="30px"
-        fontWeight="bold"
-        justifyContent="center"
-        alignItems="center"
-        fontSize="11px"
-      >
-        <CreativeTimLogo w="32px" h="32px" me="10px" />
-        <Text fontSize="sm" mt="3px">
-          {logoText}
-        </Text>
-      </Link> */}
+                    <Text 
+                    mt="3px"
+                    target="_blank"
+                    display="flex"
+                    lineHeight="100%"
+                    mb="30px"
+                    fontWeight="bold"
+                    justifyContent="center"
+                    alignItems="center"
+                    >
+                        {logoText}
+                    </Text>
                 <Separator></Separator>
             </Box>
             <Stack direction="column" mb="40px">
                 <Box>{links}</Box>
             </Stack>
-            {/* <SidebarHelp /> */}
         </>
     )
 }

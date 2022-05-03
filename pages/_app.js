@@ -18,6 +18,7 @@ import { useEffect, useState } from 'react'
 export default function MyApp({ Component, pageProps }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [fixed, setFixed] = useState(false)
+    
     // const router = useRouter();
 
     // const [activeRoute, setActiveRoute] = useState();

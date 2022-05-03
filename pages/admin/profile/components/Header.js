@@ -1,9 +1,11 @@
 // Chakra imports
 import { Avatar, Box, Button, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
+import { useUser } from '../../../../hooks/authUser'
 
 const Header = ({ backgroundHeader, backgroundProfile, avatarImage, name, email, tabs }) => {
     // Chakra color mode
+    const {user} = useUser()
     const textColor = useColorModeValue('gray.700', 'white')
     const borderProfileColor = useColorModeValue('white', 'rgba(255, 255, 255, 0.31)')
     const emailColor = useColorModeValue('gray.400', 'gray.300')
@@ -70,14 +72,14 @@ const Header = ({ backgroundHeader, backgroundProfile, avatarImage, name, email,
                                 fontWeight="bold"
                                 ms={{ sm: '8px', md: '0px' }}
                             >
-                                {name}
+                                {user.user_metadata.full_name || "Anonymus"}
                             </Text>
                             <Text
                                 fontSize={{ sm: 'sm', md: 'md' }}
                                 color={emailColor}
                                 fontWeight="semibold"
                             >
-                                {email}
+                                {user.user_metadata.email || "anonymus@gmail.com"}
                             </Text>
                         </Flex>
                     </Flex>

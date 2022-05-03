@@ -67,4 +67,6 @@ Shows the current plan and price.
 Don't try to configure ESLint your self!!! Use `npx create-next-app` instead and stick to the default.
 Same for stroybook.
 
-To redicrect automatically from one page to another use [middleware](https://nextjs.org/docs/messages/middleware-relative-urls).
+To redirect automatically from one page to another use [middleware](https://nextjs.org/docs/messages/middleware-relative-urls).
+
+Allowing SVGs inside nexjs Image - [here](https://nextjs.org/docs/api-reference/next/image#dangerously-allow-svg).

@@ -15,7 +15,6 @@ function BarChart(props) {
     useEffect(() => {
         async function fetchApi() {
             const res = await (await fetch('/api/charts')).json()
-            console.log(res)
             setData(res.barChartData)
             setOptions(res.barChartOptions)
         }

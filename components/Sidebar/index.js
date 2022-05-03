@@ -1,12 +1,17 @@
 /*eslint-disable*/
 // chakra imports
-import { Box, useColorModeValue } from '@chakra-ui/react'
+import { Box, Button, Link, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
+import { RequireAuth, useUser } from '../../hooks/authUser'
 import SidebarContent from './SidebarContent'
 
 // FUNCTIONS
 
 function Sidebar(props) {
+
+    RequireAuth()
+
+    const { user } = useUser()
     // to check for active links and opened collapses
     const mainPanel = React.useRef()
     let variantChange = '0.2s linear'
@@ -27,32 +32,34 @@ function Sidebar(props) {
     // SIDEBAR
     return (
         <Box ref={mainPanel}>
-            <Box display={{ sm: 'none', xl: 'block' }} position="fixed">
-                <Box
-                    bg={sidebarBg}
-                    transition={variantChange}
-                    w="260px"
-                    maxW="260px"
-                    ms={{
-                        sm: '16px',
-                    }}
-                    my={{
-                        sm: '16px',
-                    }}
-                    h="calc(100vh - 32px)"
-                    ps="20px"
-                    pe="20px"
-                    m={sidebarMargins}
-                    borderRadius={sidebarRadius}
-                >
-                    <SidebarContent
-                        routes={routes}
-                        logoText={'PURITY UI DASHBOARD'}
-                        display="none"
-                        sidebarVariant={sidebarVariant}
-                    />
+            {user &&
+                <Box display={{ sm: 'none', xl: 'block' }} position="fixed">
+                    <Box
+                        bg={sidebarBg}
+                        transition={variantChange}
+                        w="260px"
+                        maxW="260px"
+                        ms={{
+                            sm: '16px',
+                        }}
+                        my={{
+                            sm: '16px',
+                        }}
+                        h="calc(100vh - 32px)"
+                        ps="20px"
+                        pe="20px"
+                        m={sidebarMargins}
+                        borderRadius={sidebarRadius}
+                    >
+                        <SidebarContent
+                            routes={routes}
+                            logoText={'Sil Visser Coaching'}
+                            display="none"
+                            sidebarVariant={sidebarVariant}
+                        />
+                    </Box>
                 </Box>
-            </Box>
+            }
         </Box>
     )
 }

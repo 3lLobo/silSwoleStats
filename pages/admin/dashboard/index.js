@@ -7,7 +7,10 @@ import React from 'react'
 import ActiveUsers from './components/ActiveUsers'
 import SalesOverview from './components/SalesOverview'
 import D3Chart from '../../../components/D3/circle'
+import { Sunburst } from '../../../components/D3/sunburst'
 import { data } from './data'
+import {flairData} from './flareData'
+
 export default function Dashboard() {
     const iconBoxInside = useColorModeValue('white', 'white')
 
@@ -81,6 +84,7 @@ export default function Dashboard() {
                     percentage={11}
                     chart={<LineChart />}
                 />
+                <Sunburst data={flairData} />
                 <D3Chart data={data} />
             </Grid>
             {/* <Grid

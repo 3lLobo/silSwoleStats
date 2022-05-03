@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 
 export const SignOut = async () => {
     await supabase.auth.signOut()
+    console.log("signed out")
 }
 
 export const RequireAuth = () => {
@@ -12,7 +13,7 @@ export const RequireAuth = () => {
 
     useEffect(() => {
         if (!user) {
-            router.push('/auth')
+            router.push('/auth/login')
         }
     }, [user, router])
 }
