@@ -16,50 +16,47 @@ import { getActiveNavbar } from '../utils/sidebarFncs'
 import { useEffect, useState } from 'react'
 
 export default function MyApp({ Component, pageProps }) {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [fixed, setFixed] = useState(false)
+    // const router = useRouter();
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [fixed, setFixed] = useState(false);
-  // const router = useRouter();
+    // const [activeRoute, setActiveRoute] = useState();
+    // const [activeNavbar, setActiveNavbar] = useState()
 
-  // const [activeRoute, setActiveRoute] = useState();
-  // const [activeNavbar, setActiveNavbar] = useState()
+    // useEffect(() => {
+    //   setActiveRoute(getActiveRoute(routes, router))
+    //   setActiveNavbar(getActiveNavbar(routes, router))
+    // }, [router, routes])
 
-  // useEffect(() => {
-  //   setActiveRoute(getActiveRoute(routes, router))
-  //   setActiveNavbar(getActiveNavbar(routes, router))
-  // }, [router, routes])
-
-
-  return (
-    <main>
-      <UserContextProvider>
-        <ApolloProvider client={supabase}>
-          <ChakraProvider theme={myTheme}>
-            <Sidebar
-              routes={routes}
-              logoText={"SWOLE DASHBOARD"}
-              display="none"
-              sidebarVariant="opaque"
-            />
-            <MainPanel
-              p="11"
-              w={{
-                base: "100%",
-                xl: "calc(100% - 275px)",
-              }}
-            >
-              <Portal>
-                <ToggleMode />
-              </Portal>
-              <Portal>
-                <Notifications
-                />
-              </Portal>
-              <Component {...pageProps} />
-            </MainPanel>
-          </ChakraProvider>
-        </ApolloProvider>
-      </UserContextProvider>
-    </main>
-  )
+    return (
+        <main>
+            <UserContextProvider>
+                <ApolloProvider client={supabase}>
+                    <ChakraProvider theme={myTheme}>
+                        <Sidebar
+                            routes={routes}
+                            logoText={'SWOLE DASHBOARD'}
+                            display="none"
+                            sidebarVariant="opaque"
+                        />
+                        <MainPanel
+                            p="11"
+                            w={{
+                                base: '100%',
+                                xl: 'calc(100% - 275px)',
+                            }}
+                        >
+                            <Portal>
+                                <ToggleMode />
+                            </Portal>
+                            <Portal>
+                                <Notifications />
+                            </Portal>
+                            <Component {...pageProps} />
+                        </MainPanel>
+                    </ChakraProvider>
+                </ApolloProvider>
+            </UserContextProvider>
+        </main>
+    )
 }

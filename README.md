@@ -4,7 +4,6 @@ An MVP WebApp to track Sil's clients Swoleness.
 
 [![Wallaby.js](https://img.shields.io/badge/wallaby.js-powered-g.svg?style=for-the-badge&logo=github)](https://wallabyjs.com/oss/)
 
-
 This page shall have double sided purpose:
 
 -   for once, the client shall be able to log his stats
@@ -26,7 +25,6 @@ Mockup data should be weight, big lifts and waist measurements for client data a
 Template: [Purity UI Dashboard](https://demos.creative-tim.com/purity-ui-dashboard)
 
 Formating and Linting: [DevPost](https://dev.to/chgldev/getting-prettier-eslint-and-vscode-to-work-together-3678)
-
 
 ### Dashboard
 
@@ -64,10 +62,9 @@ Edit the template [here](src/views/Dashboard/Tables/index.js)
 
 Shows the current plan and price.
 
-
 ## Notes 2 myself
 
 Don't try to configure ESLint your self!!! Use `npx create-next-app` instead and stick to the default.
-Same for stroybook. 
+Same for stroybook.
 
 To redicrect automatically from one page to another use [middleware](https://nextjs.org/docs/messages/middleware-relative-urls).

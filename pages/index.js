@@ -15,36 +15,43 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import { useEffect, useRef } from "react";
-import Link from "next/link"
+import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 
-import AuthNavbar from "../components/Navbars/AuthNavbar.js";
+import AuthNavbar from '../components/Navbars/AuthNavbar.js'
 
 import { useUser } from '../hooks/authUser'
-import { useDisclosure, Box, Portal, HStack, Center, Text, Hide, Heading, Button } from "@chakra-ui/react"
-import { AuthRedirect } from "../hooks/authUser.js";
-import { useRouter } from "next/router";
+import {
+    useDisclosure,
+    Box,
+    Portal,
+    HStack,
+    Center,
+    Text,
+    Hide,
+    Heading,
+    Button,
+} from '@chakra-ui/react'
+import { AuthRedirect } from '../hooks/authUser.js'
+import { useRouter } from 'next/router'
 
 const Index = () => {
-  // AuthRedirect()
+    // AuthRedirect()
 
-  const { user } = useUser();
-  const router = useRouter()
+    const { user } = useUser()
+    const router = useRouter()
 
-  console.log(user)
+    console.log(user)
 
-  useEffect(() => {
-    if (user) {
-      router.push('/admin/dashboard')
-    } else {
-      router.push('/auth/login')
-    }
-  }, [user, router])
+    useEffect(() => {
+        if (user) {
+            router.push('/admin/dashboard')
+        } else {
+            router.push('/auth/login')
+        }
+    }, [user, router])
 
-  return (
-    <Box>
-    </Box>
-  )
+    return <Box></Box>
 }
 
 export default Index

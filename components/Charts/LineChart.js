@@ -1,44 +1,34 @@
-import React from "react";
+import React from 'react'
 // import ReactApexChart from "react-apexcharts";
 // import { lineChartData, lineChartOptions } from "../../variables/charts";
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from "react";
-import { Box } from "@chakra-ui/react";
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
+import { Box } from '@chakra-ui/react'
 
-
-const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 function LineChart() {
+    const [data, setData] = useState()
+    const [options, setOptions] = useState()
 
-  const [data, setData] = useState()
-  const [options, setOptions] = useState()
+    useEffect(() => {
+        async function fetchApi() {
+            const res = await (await fetch('/api/charts')).json()
+            setData(res.lineChartData)
+            setOptions(res.lineChartOptions)
+        }
+        fetchApi()
+    }, [])
 
-  useEffect(() => {
-    async function fetchApi() {
-      const res = await (await fetch("/api/charts")).json()
-      setData(res.lineChartData)
-      setOptions(res.lineChartOptions)
-    }
-    fetchApi()
-  }, [])
-
-
-  return (
-    <Box>
-      {data ?
-        (
-          <ApexChart
-            options={options}
-            series={data}
-            type="area"
-            width="100%"
-            height="100%"
-          />
-        )
-        : <Box />
-      }
-    </Box>
-  );
+    return (
+        <Box>
+            {data ? (
+                <ApexChart options={options} series={data} type="area" width="100%" height="100%" />
+            ) : (
+                <Box />
+            )}
+        </Box>
+    )
 }
 
 // class LineChart extends React.Component {
@@ -71,4 +61,4 @@ function LineChart() {
 //   }
 // }
 
-export default LineChart;
+export default LineChart

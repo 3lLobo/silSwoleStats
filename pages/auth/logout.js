@@ -1,9 +1,8 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { SignOut, useUser } from "../../hooks/authUser";
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { SignOut, useUser } from '../../hooks/authUser'
 
 export default function () {
-
     const { user } = useUser()
     const router = useRouter()
 
@@ -14,7 +13,6 @@ export default function () {
             }
             router.push('/')
         }
-        logout();
+        logout()
     }, [user])
-
 }

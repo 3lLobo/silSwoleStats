@@ -16,7 +16,6 @@
 // import PanelContent from "../../components/Layout/PanelContent";
 // import { useRouter } from "next/router";
 
-
 // export default function Dashboard(props) {
 //   const { ...rest } = props;
 //   // states and functions
@@ -51,7 +50,7 @@
 //     }
 //     return activeRoute;
 //   };
-  
+
 //   // This changes navbar state(fixed or not)
 //   const getActiveNavbar = (routes) => {
 //     let activeNavbar = false;
