@@ -9,7 +9,7 @@ import SidebarContent from './SidebarContent'
 
 function Sidebar(props) {
 
-    RequireAuth()
+    // RequireAuth()
 
     const { user } = useUser()
     // to check for active links and opened collapses
