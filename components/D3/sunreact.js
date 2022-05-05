@@ -23,25 +23,8 @@ export default function Sunreact({ data: propsdata, cardWidth }) {
         console.log("fetchh")
     }
 
-    function handleResizeEvent() {
-        let resizeTimer;
-        const handleResize = () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function () {
-                console.log("BOX", boxref.current.clientWidth)
-                setWidth(boxref.current.clientWidth);
-                setHeight(boxref.current.clientHeight);
-            }, 300);
-        };
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }
-
-    function onClick(e) {
-        console.log("Click", e)
+    function onClick(e,p) {
+        console.log("Click", p)
     }
 
     function initVis() {
@@ -53,7 +36,7 @@ export default function Sunreact({ data: propsdata, cardWidth }) {
                     data: data,
                     width: cardWidth,
                     height: cardWidth,
-                    onDatapointClick: setActive
+                    onDatapointClick: onClick
                 };
                 console.log("PROPS", d3Props)
                 vis = new D3Component(refElement.current, d3Props);
@@ -78,17 +61,31 @@ export default function Sunreact({ data: propsdata, cardWidth }) {
             boxShadow='0px 3.5px 5.5px rgba(0, 0, 0, 0.02)'
             borderRadius='15px'
             bg='gray.300'
-            p='6'
+            // p='6'
             ref={boxref}
             id='stupidBox'
         >
-            <Text>{active || "none"}</Text>
+            {/* <Text>{active || "none"}</Text> */}
             <AspectRatio
                 maxWidth={cardWidth}
                 ratio={1}
             >
 
-                <div ref={refElement} />
+                {/* <div ref={refElement} /> */}
+                <svg
+                    ref={refElement}
+                    style={{
+                        height: cardWidth,
+                        width: cardWidth,
+                        marginRight: '0px',
+                        marginLeft: '0px',
+                    }}
+                >
+                    <g id="2" data-name="2"></g>
+                <g className="plot-area" />
+                <g className="x-axis" />
+            <g className="y-axis" />
+                </svg>
             </AspectRatio>
         </Box>
     );

@@ -34,21 +34,26 @@ class D3Component {
         //     .on('mouseup', (d, i, nodes) => console.log(d, i, nodes)); // this.setActiveDatapoint(d, nodes[i]));
     }
 
-    setActiveDatapoint = (d) => {
+    setActiveDatapoint = (e, d) => {
         // d3.select(node).style('fill', 'yellow');
-        this.props.onDatapointClick(d);
+        this.props.onDatapointClick(e, d);
     }
 
     resize = (width, height) => {
-        const { svg, props: { data } } = this;
-        console.log("THIS width", width)
-        // this.svg = this.chart(svg, width, height, data)
+        const { svg, props: { data, width: oldWidth } } = this;
+        const scaleVal = Math.sqrt(Math.floor((width / oldWidth) * 100) / (100));
+        console.log("THIS width", scaleVal);
+        d3.selectAll("svg > g").remove();
+        // svg.remove();
         svg.attr('width', width)
             .attr('height', height);
-        // svg.selectAll('circle')
+        this.svg = this.chart(svg, width, height, data)
+        //     svg.selectAll('g')
+        //     .attr('height', height)
         //     .attr("r", width / 6)
-        // svg.selectAll('g')
-        //     .attr("transform", `translate(${width / 2},${width / 2})`);
+        //     // .attr("transform", `scale(${width / oldWidth})`)
+        //     .attr("transform", `translate(${width / 4},${width / 4}) scale(${scaleVal})`);
+        // this.props.width = width;
         //     .attr('cx', () => Math.random() * width)
         //     .attr('cy', () => Math.random() * height);
     }
@@ -123,6 +128,7 @@ class D3Component {
 
         function clicked(event, p) {
             parent.datum(p.parent || root);
+            this.setActiveDatapoint
 
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,

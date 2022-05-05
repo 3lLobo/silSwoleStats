@@ -39,7 +39,7 @@ export default function Dashboard() {
 			};
 		}
 		handleResizeEvent()
-		// boxref.current && setCardWidth(boxref.current.clientWidth);
+		boxref.current && setCardWidth(boxref.current.clientWidth);
 		console.log('Size', boxref.current.clientWidth)
 	})
 
@@ -119,7 +119,7 @@ export default function Dashboard() {
 					ref={boxref}
 				>
 
-					{(cardWidth > 0) && <D3Dynamic data={flairData} cardWidth={cardWidth} /> }
+					<D3Dynamic data={flairData} cardWidth={cardWidth} />
 				</Box>
 
 			</Grid>
