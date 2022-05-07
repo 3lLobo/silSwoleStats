@@ -59,7 +59,7 @@ export function Sunburst({ data }) {
             backgroundClip='border-box'
             boxShadow='0px 3.5px 5.5px rgba(0, 0, 0, 0.02)'
             borderRadius='15px'
-            bg='gray.300'
+            bg='white'
             p='6'
         >
             <AspectRatio

@@ -27,9 +27,7 @@ export default function Dashboard() {
 			const handleResize = () => {
 				clearTimeout(resizeTimer);
 				resizeTimer = setTimeout(function () {
-					console.log("BOX", boxref.current.clientWidth)
 					setCardWidth(boxref.current.clientWidth);
-					// setHeight(boxref.current.clientHeight);
 				}, 300);
 			};
 			window.addEventListener('resize', handleResize);
@@ -40,7 +38,7 @@ export default function Dashboard() {
 		}
 		handleResizeEvent()
 		boxref.current && setCardWidth(boxref.current.clientWidth);
-		console.log('Size', boxref.current.clientWidth)
+		// console.log('Size', boxref.current.clientWidth)
 	})
 
 	return (
@@ -107,18 +105,17 @@ export default function Dashboard() {
 				gap="11"
 				mb={{ lg: '26px' }}
 			>
-				{/* <ActiveUsers title={'Big4 Lifts'} percentage={6} chart={<BarChart />} />
+				<ActiveUsers title={'Big4 Lifts'} percentage={6} chart={<BarChart />} />
                 <SalesOverview
                     title={'Weight & Body Fat %'}
                     percentage={11}
                     chart={<LineChart />}
-                /> */}
+                />
 				{/* <Sunburst data={flairData} /> */}
-				{/* <D3Chart data={data} /> */}
+				<D3Chart data={data} />
 				<Box
 					ref={boxref}
 				>
-
 					<D3Dynamic data={flairData} cardWidth={cardWidth} />
 				</Box>
 

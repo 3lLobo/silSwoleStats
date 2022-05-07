@@ -62,6 +62,20 @@ Edit the template [here](src/views/Dashboard/Tables/index.js)
 
 Shows the current plan and price.
 
+
+## React / NextJS and D3
+
+Browsing the web we got along two different methods. Both rely on passing the D3 svg (`svg.node()`) to the `useRef()` React hook, then setting this ref as refference to either an `<svg />` or a `<div />` element. We didn't figure out yet how to use it with NextJS optimized `<Image />` component. Here the two alternatives:
+
+ - Using [D3 inside a react hook](https://www.pluralsight.com/guides/using-d3.js-inside-a-react-app). The chart gets rendered inside the `useD3()` hook and returns the ref object. Simple but too simple for challenges like component resizing and getting data in/out of the chart.
+ - More complex solution by building a [D3 chart class](https://levelup.gitconnected.com/react-hooks-and-d3-39be1d900fb). Again the class takes a `ref` hook-element as input for the constructor which likes to the chart. The class can be enhanced with `onClick()` functions and further props. Inside the React component, events such as resizing or data updates are handled by React `useEffect()` hooks. Tricky is here the NextJS server-side renderer. We pass the React component as `dynamic` and opt out of SSR. Here a nice [gist](https://gist.github.com/stopyransky/fe3fd908055be08f2c8df4600962ff0e#file-reactcomponent-js)
+
+On linkedIn I saw a workshop video of a lady who also wrote a book on how to integrate D3 in React. Can't find it anymore 🙄
+
+TODO:
+ - how to change the `<svg />` font and color.
+ - pull data out of the chart to React
+
 ## Notes 2 myself
 
 Don't try to configure ESLint your self!!! Use `npx create-next-app` instead and stick to the default.

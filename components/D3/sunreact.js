@@ -1,4 +1,4 @@
-import { Box, Text, AspectRatio } from '@chakra-ui/react';
+import { Box, Text, AspectRatio, useStyleConfig } from '@chakra-ui/react';
 import { useState, useEffect, useRef } from 'react';
 import D3Component from './sunclass';
 
@@ -8,8 +8,9 @@ let vis;
 export default function Sunreact({ data: propsdata, cardWidth }) {
     const [data, setData] = useState(null);
     const boxref = useRef()
-    // const [width, setWidth] = useState(boxref.current?.clientWidth);
-    // const [height, setHeight] = useState(boxref.current?.clientWidth);
+
+    const styles = useStyleConfig('Card', {'variant': 'panel'} )
+
     const [active, setActive] = useState(null);
     const refElement = useRef(null);
 
@@ -23,13 +24,14 @@ export default function Sunreact({ data: propsdata, cardWidth }) {
         console.log("fetchh")
     }
 
-    function onClick(e,p) {
+    function onClick(e, p) {
         console.log("Click", p)
+        setActive(p.data.name + "   " +  p.value.toString());
+
     }
 
     function initVis() {
         if (cardWidth > 0) {
-            console.log('INIT')
 
             if (data) {
                 const d3Props = {
@@ -38,19 +40,18 @@ export default function Sunreact({ data: propsdata, cardWidth }) {
                     height: cardWidth,
                     onDatapointClick: onClick
                 };
-                console.log("PROPS", d3Props)
                 vis = new D3Component(refElement.current, d3Props);
             }
         }
     }
 
     function updateVisOnResize() {
-        console.log("RESIZEE")
         vis && vis.resize(cardWidth, cardWidth);
     }
 
     return (
         <Box
+        // __css={styles}
             display='flex'
             flexDirection='column'
             width='100%'
@@ -60,12 +61,19 @@ export default function Sunreact({ data: propsdata, cardWidth }) {
             backgroundClip='border-box'
             boxShadow='0px 3.5px 5.5px rgba(0, 0, 0, 0.02)'
             borderRadius='15px'
-            bg='gray.300'
-            // p='6'
+            bg='white'
+            // // p='6'
             ref={boxref}
-            id='stupidBox'
         >
-            {/* <Text>{active || "none"}</Text> */}
+            <Text
+            fontFamily="Helvetica"
+            bg="teal.300"
+            rounded="full"
+            p="3"
+            textAlign="center"
+            >
+                {active || "none"}
+                </Text>
             <AspectRatio
                 maxWidth={cardWidth}
                 ratio={1}

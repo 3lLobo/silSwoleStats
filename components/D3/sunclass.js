@@ -20,9 +20,8 @@ class D3Component {
     }
 
     updateDatapoints = () => {
-        const { svg, props: { data, width, height } } = this;
-        console.log("data.", data)
-        this.svg = this.chart(svg, width, height, data)
+        const { svg, props: { data, width, height, onDatapointClick } } = this;
+        this.svg = this.chart(svg, width, height, data, onDatapointClick)
         // svg.selectAll('circle')
         //     .data(data)
         //     .enter()
@@ -58,9 +57,8 @@ class D3Component {
         //     .attr('cy', () => Math.random() * height);
     }
 
-    chart = (svg, width, height, data) => {
+    chart = (svg, width, height, data, onDatapointClick) => {
         // const width = 600;
-        console.log("WISS ", width)
         const radius = width / 6
 
         const partition = (data) => {
@@ -128,7 +126,7 @@ class D3Component {
 
         function clicked(event, p) {
             parent.datum(p.parent || root);
-            this.setActiveDatapoint
+            onDatapointClick(event, p);
 
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
