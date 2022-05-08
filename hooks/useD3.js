@@ -6,13 +6,15 @@ export const useD3 = (renderChartFn, svgWidth, data) => {
     const ref = useRef()
 
     useEffect(() => {
-        console.log("BOX ", svgWidth)
+        console.log('BOX ', svgWidth)
         if (svgWidth > 0) {
-            console.log("WE INSIRE")
+            console.log('WE INSIRE')
             renderChartFn(d3.select(ref.current), svgWidth, svgWidth, data)
             setLoaded(true)
         }
-        return () => { setLoaded(false) }
+        return () => {
+            setLoaded(false)
+        }
     }, [data.length, loaded, ref, svgWidth])
 
     return { ref, loaded, setLoaded }

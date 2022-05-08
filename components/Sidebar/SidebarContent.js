@@ -166,7 +166,7 @@ const SidebarContent = ({ logoText, routes }) => {
     return (
         <>
             <Box pt={'25px'} mb="12px">
-                    <Text 
+                <Text
                     mt="3px"
                     target="_blank"
                     display="flex"
@@ -175,9 +175,9 @@ const SidebarContent = ({ logoText, routes }) => {
                     fontWeight="bold"
                     justifyContent="center"
                     alignItems="center"
-                    >
-                        {logoText}
-                    </Text>
+                >
+                    {logoText}
+                </Text>
                 <Separator></Separator>
             </Box>
             <Stack direction="column" mb="40px">

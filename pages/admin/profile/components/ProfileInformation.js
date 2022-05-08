@@ -11,7 +11,7 @@ import { useUser } from '../../../../hooks/authUser'
 const ProfileInformation = ({ title, description, name, mobile, email, location }) => {
     // Chakra color mode
     const textColor = useColorModeValue('gray.700', 'white')
-    const {user} = useUser()
+    const { user } = useUser()
 
     return (
         <Card p="16px" my={{ sm: '24px', xl: '0px' }}>
@@ -23,16 +23,15 @@ const ProfileInformation = ({ title, description, name, mobile, email, location 
             <CardBody px="5px">
                 <Flex direction="column">
                     <Text fontSize="md" color="gray.500" fontWeight="400" mb="30px">
-                        Client's goal is to lose weight and build muscle.
-                        Eventually compete at the olympia one year.
-                        This day has yet to come! We worqing.
+                        Client's goal is to lose weight and build muscle. Eventually compete at the
+                        olympia one year. This day has yet to come! We worqing.
                     </Text>
                     <Flex align="center" mb="18px">
                         <Text fontSize="md" color={textColor} fontWeight="bold" me="10px">
                             Full Name:{' '}
                         </Text>
                         <Text fontSize="md" color="gray.500" fontWeight="400">
-                        {user.user_metadata.full_name || "Anonymus"}
+                            {user.user_metadata.full_name || 'Anonymus'}
                         </Text>
                     </Flex>
                     <Flex align="center" mb="18px">
@@ -48,7 +47,7 @@ const ProfileInformation = ({ title, description, name, mobile, email, location 
                             Email:{' '}
                         </Text>
                         <Text fontSize="md" color="gray.500" fontWeight="400">
-                        {user.user_metadata.email || "anonymus@gmail.com"}
+                            {user.user_metadata.email || 'anonymus@gmail.com'}
                         </Text>
                     </Flex>
                     <Flex align="center" mb="18px">

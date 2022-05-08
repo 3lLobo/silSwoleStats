@@ -14,18 +14,10 @@ export default function () {
             }
             // router.push('/auth/login')
         }
-        logout();
+        logout()
     }, [user])
 
     return (
-        <Box
-        center="center">
-            {user ?
-                (<Text> Logging out ... </Text>) : (
-                    <Button>
-                        Login!
-                    </Button>
-                )}
-        </Box>
+        <Box center="center">{user ? <Text> Logging out ... </Text> : <Button>Login!</Button>}</Box>
     )
 }

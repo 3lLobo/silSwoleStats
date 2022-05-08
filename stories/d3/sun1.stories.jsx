@@ -1,7 +1,7 @@
 // import React from 'react';
-import {flareData}  from './flareData'
+import { flareData } from './flareData'
 
-import {Sunburst} from '../../components/D3/sunburst'
+import { Sunburst } from '../../components/D3/sunburst'
 
 export default {
     title: 'd3/Sun1',

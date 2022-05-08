@@ -8,7 +8,6 @@ import SidebarContent from './SidebarContent'
 // FUNCTIONS
 
 function Sidebar(props) {
-
     // RequireAuth()
 
     const { user } = useUser()
@@ -32,7 +31,7 @@ function Sidebar(props) {
     // SIDEBAR
     return (
         <Box ref={mainPanel}>
-            {user &&
+            {user && (
                 <Box display={{ sm: 'none', xl: 'block' }} position="fixed">
                     <Box
                         bg={sidebarBg}
@@ -59,7 +58,7 @@ function Sidebar(props) {
                         />
                     </Box>
                 </Box>
-            }
+            )}
         </Box>
     )
 }

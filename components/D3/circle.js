@@ -7,7 +7,6 @@ import mateSvg from './mate.svg'
 import dynamic from 'next/dynamic'
 // import {d3bars} from './bars'
 
-
 function BarChart({ data }) {
     // const ref = useD3( (svg, data) => d3bars(svg, data), [data.length]
     // )
@@ -35,16 +34,10 @@ function BarChart({ data }) {
 
 const DynamicD3 = dynamic(() => BarChart, { ssr: false })
 
-
 const MateSvg = () => {
-
     return (
         <Box>
-            <Image
-                alt="svgPic"
-                src={mateSvg}
-            />
-
+            <Image alt="svgPic" src={mateSvg} />
         </Box>
     )
 }
