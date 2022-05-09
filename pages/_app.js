@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'
 
 import { ApolloProvider } from '@apollo/client'
-import { UserContextProvider } from '../hooks/authUser'
+import { RequireAuth, UserContextProvider } from '../hooks/authUser'
 import { ChakraProvider, useDisclosure, Portal } from '@chakra-ui/react'
 import { supabase } from '../utils/initSupabase'
 import { myTheme } from '../theme/theme'
@@ -11,9 +11,58 @@ import Sidebar from '../components/Sidebar'
 // import FixedPlugin from '../components/FixedPlugin/FixedPlugin'
 import Notifications from '../components/FixedPlugin/notificationPlugin'
 import ToggleMode from '../components/FixedPlugin/toggleMode'
-import routes from './routes'
 import { getActiveNavbar } from '../utils/sidebarFncs'
 import { useEffect, useState } from 'react'
+import {
+    HomeIcon,
+    StatsIcon,
+    CreditIcon,
+    PersonIcon,
+    DocumentIcon,
+    RocketIcon,
+    SupportIcon,
+} from '../components/Icons/Icons'
+
+var routes = [
+    {
+        path: '/dashboard',
+        name: 'Dashboard',
+        icon: <HomeIcon color="inherit" />,
+        layout: '/admin',
+    },
+    {
+        path: '/tables',
+        name: 'Tables',
+        icon: <StatsIcon color="inherit" />,
+        layout: '/admin',
+    },
+    {
+        path: '/billing',
+        name: 'Billing',
+        icon: <CreditIcon color="inherit" />,
+        layout: '/admin',
+    },
+    {
+        name: 'ACCOUNT PAGES',
+        category: 'account',
+        state: 'pageCollapse',
+        views: [
+            {
+                path: '/profile',
+                name: 'Profile',
+                icon: <PersonIcon color="inherit" />,
+                secondaryNavbar: true,
+                layout: '/admin',
+            },
+            {
+                path: '/logout',
+                name: 'Logout',
+                icon: <DocumentIcon color="inherit" />,
+                layout: '/auth',
+            },
+        ],
+    },
+]
 
 export default function MyApp({ Component, pageProps }) {
     const { isOpen, onOpen, onClose } = useDisclosure()

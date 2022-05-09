@@ -1,23 +1,19 @@
 // Chakra imports
 import { Box, Flex, Grid, Image, SimpleGrid, useColorModeValue } from '@chakra-ui/react'
-import BarChart from '../../../components/Charts/BarChart'
-import LineChart from '../../../components/Charts/LineChart'
+import BarChart from '/components/Charts/BarChart'
+import LineChart from '/components/Charts/LineChart'
 
 import React, { useEffect, useState, useRef } from 'react'
-import ActiveUsers from './components/ActiveUsers'
-import SalesOverview from './components/SalesOverview'
-import D3Chart from '../../../components/D3/circle'
-import { data } from './data'
-import { flairData } from './flareData'
-import { onSunburstClick } from '../../../components/D3/D3Card'
-import D3Sunburst from '../../../components/D3/sunclass'
+import ActiveUsers from '/components/Admin/Dashboard/components/ActiveUsers'
+import SalesOverview from '/components/Admin/Dashboard/components/SalesOverview'
+import D3Chart from '/components/D3/circle'
+import D3Sunburst from '/components/D3/sunclass'
 import dynamic from 'next/dynamic'
 
-const D3Dynamic = dynamic(() => import('../../../components/D3/D3Card'), { ssr: false })
+const D3Dynamic = dynamic(() => import('/components/D3/D3Card'), { ssr: false })
 
 export default function Dashboard() {
     const iconBoxInside = useColorModeValue('white', 'white')
-
     const boxref = useRef()
     const [cardWidth, setCardWidth] = useState()
 
@@ -112,9 +108,9 @@ export default function Dashboard() {
                     chart={<LineChart />}
                 />
                 {/* <Sunburst data={flairData} /> */}
-                <D3Chart data={data} />
+                {/* <D3Chart /> */}
                 <Box ref={boxref}>
-                    <D3Dynamic data={flairData} cardWidth={cardWidth} d3component={D3Sunburst} />
+                    <D3Dynamic cardWidth={cardWidth} d3component={D3Sunburst} />
                 </Box>
             </Grid>
             {/* <Grid

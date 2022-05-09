@@ -1,4 +1,11 @@
-export const flairData = {
+export default function handler(req, res) {
+    res.status(200).json({
+        flareData: flareData
+    })
+}
+
+
+export const flareData = {
     name: 'flare',
     children: [
         {

@@ -1,8 +1,8 @@
 // Chakra imports
 import { Flex } from '@chakra-ui/react'
 import React from 'react'
-import Authors from './components/Authors'
-import Projects from './components/Projects'
+import Authors from '/components/Admin/Tables/components/Authors'
+import Projects from '/components/Admin/Tables/components/Projects'
 import { tablesTableData, dashboardTableData } from '../../../variables/general'
 
 function Tables() {

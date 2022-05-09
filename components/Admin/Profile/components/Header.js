@@ -72,14 +72,14 @@ const Header = ({ backgroundHeader, backgroundProfile, avatarImage, name, email,
                                 fontWeight="bold"
                                 ms={{ sm: '8px', md: '0px' }}
                             >
-                                {user.user_metadata.full_name || 'Anonymus'}
+                                {user.user_metadata?.full_name || 'Anonymus'}
                             </Text>
                             <Text
                                 fontSize={{ sm: 'sm', md: 'md' }}
                                 color={emailColor}
                                 fontWeight="semibold"
                             >
-                                {user.user_metadata.email || 'anonymus@gmail.com'}
+                                {user.user_metadata?.email || 'anonymus@gmail.com'}
                             </Text>
                         </Flex>
                     </Flex>

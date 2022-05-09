@@ -10,10 +10,10 @@ import { RiMastercardFill } from 'react-icons/ri'
 //   invoicesData,
 // } from "../../../variables/general";
 // import BillingInformation from "./components/BillingInformation";
-import CreditCard from './components/CreditCard'
-import Invoices from './components/Invoices'
+import CreditCard from '/components/Admin/Billing/components/CreditCard'
+import Invoices from '/components/Admin/Billing/components/Invoices'
 // import PaymentMethod from "./components/PaymentMethod";
-import PaymentStatistics from './components/PaymentStatistics'
+import PaymentStatistics from '/components/Admin/Billing/components/PaymentStatistics'
 // import Transactions from "./components/Transactions";
 
 function Billing() {

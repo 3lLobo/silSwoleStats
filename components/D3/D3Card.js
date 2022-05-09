@@ -2,7 +2,7 @@ import { Box, Text, AspectRatio, useStyleConfig, useColorModeValue } from '@chak
 import D3component from './sunclass'
 import { useState, useEffect, useRef } from 'react'
 
-export default function D3Card({ data: propsdata, cardWidth, d3component }) {
+export default function D3Card({ cardWidth, d3component }) {
     // const onClickFunction = onSunburstClick
     let vis
     const svgBoxBg = useColorModeValue('white', 'gray.700')
@@ -13,21 +13,30 @@ export default function D3Card({ data: propsdata, cardWidth, d3component }) {
     const [svgWidth, setSvgWidth] = useState(cardWidth - 2 * paddingBox)
 
     useEffect(() => {
+            async function fetchApi() {
+                const resFlare = await (await fetch('/api/flareData')).json()
+                setData(resFlare.flareData)
+            }
+            fetchApi()
+        // fetchData()
+    }, [])
+
+    useEffect(() => {
         setSvgWidth(() => cardWidth - 2 * paddingBox)
     }, [cardWidth, paddingBox])
 
     const [active, setActive] = useState(null)
     const refElement = useRef(null)
 
-    useEffect(fetchData, [])
+    // useEffect(fetchData, [])
     // useEffect(handleResizeEvent, []);
     useEffect(initVis, [data])
     useEffect(updateVisOnResize, [svgWidth])
 
-    function fetchData() {
-        Promise.resolve().then(() => setData(propsdata))
-        console.log('fetchh')
-    }
+    // function fetchData() {
+    //     Promise.resolve(fetch('/api/flareData')).then((res) => setData(res.json().flareData))
+    //     console.log('fetchh')
+    // }
 
     function onClick(e, p) {
         console.log('Click', p)
