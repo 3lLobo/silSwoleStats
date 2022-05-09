@@ -6,10 +6,10 @@ import React from 'react'
 import { FaCube, FaPenFancy } from 'react-icons/fa'
 import { IoDocumentsSharp } from 'react-icons/io5'
 // import Conversations from "./components/Conversations";
-import Header from './components/Header'
-import PlatformSettings from './components/PlatformSettings'
-import ProfileInformation from './components/ProfileInformation'
-import Projects from './components/Projects'
+import Header from '/components/Admin/Profile/components/Header'
+import PlatformSettings from '/components/Admin/Profile/components/PlatformSettings'
+import ProfileInformation from '/components/Admin/Profile/components/ProfileInformation'
+import Projects from '/components/Admin/Profile/components/Projects'
 
 function Profile() {
     // Chakra color mode

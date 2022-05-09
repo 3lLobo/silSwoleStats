@@ -31,7 +31,7 @@ const ProfileInformation = ({ title, description, name, mobile, email, location 
                             Full Name:{' '}
                         </Text>
                         <Text fontSize="md" color="gray.500" fontWeight="400">
-                            {user.user_metadata.full_name || 'Anonymus'}
+                            {user.user_metadata?.full_name || 'Anonymus'}
                         </Text>
                     </Flex>
                     <Flex align="center" mb="18px">
@@ -47,7 +47,7 @@ const ProfileInformation = ({ title, description, name, mobile, email, location 
                             Email:{' '}
                         </Text>
                         <Text fontSize="md" color="gray.500" fontWeight="400">
-                            {user.user_metadata.email || 'anonymus@gmail.com'}
+                            {user.user_metadata?.email || 'anonymus@gmail.com'}
                         </Text>
                     </Flex>
                     <Flex align="center" mb="18px">

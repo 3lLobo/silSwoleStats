@@ -1,4 +1,12 @@
-export const data = [
+export default function handler(req, res) {
+    res.status(200).json({
+        yeardata: yeardata
+    })
+}
+
+
+
+export const yeardata = [
     { year: 1980, efficiency: 24.3, sales: 8949000 },
     { year: 1985, efficiency: 27.6, sales: 10979000 },
     { year: 1990, efficiency: 28, sales: 9303000 },
