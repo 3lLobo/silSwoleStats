@@ -12,7 +12,6 @@ class D3Component {
         this.svg = d3
             .select(containerEl)
             .append('svg')
-            // .style('background-color', 'white')
             .attr('width', width)
             .attr('height', height)
 
@@ -20,11 +19,13 @@ class D3Component {
     }
 
     updateDatapoints = () => {
+        console.log("Updateinggg")
         const {
             svg,
-            props: { data, width, height, onDatapointClick },
+            props: { data, width, height, onDatapointClick, fontColor },
         } = this
-        this.svg = this.chart(svg, width, height, data, onDatapointClick)
+        d3.selectAll('svg > g').remove()
+        this.svg = this.chart(svg, width, height, data, onDatapointClick, fontColor)
         // svg.selectAll('circle')
         //     .data(data)
         //     .enter()
@@ -41,17 +42,21 @@ class D3Component {
         this.props.onDatapointClick(e, d)
     }
 
-    resize = (width, height) => {
-        const {
-            svg,
-            props: { data, width: oldWidth },
-        } = this
-        const scaleVal = Math.sqrt(Math.floor((width / oldWidth) * 100) / 100)
-        console.log('THIS width', scaleVal)
-        d3.selectAll('svg > g').remove()
-        // svg.remove();
-        svg.attr('width', width).attr('height', height)
-        this.svg = this.chart(svg, width, height, data)
+    // resize = (width, height) => {
+    //     const {
+    //         svg,
+    //         props: { data, width: oldWidth, onDatapointClick },
+    //     } = this
+    //     const scaleVal = Math.sqrt(Math.floor((width / oldWidth) * 100) / 100)
+    //     console.log('THIS width', scaleVal)
+
+    //     this.props.width = width;
+    //     this.props.height = height;
+    //     // this.props.fontColor = fontColor;
+    //     d3.selectAll('svg > g').remove()
+    //     // svg.remove();
+    //     svg.attr('width', width).attr('height', height)
+    //     this.svg = this.chart(svg, width, height, data, onDatapointClick)
         //     svg.selectAll('g')
         //     .attr('height', height)
         //     .attr("r", width / 6)
@@ -60,9 +65,9 @@ class D3Component {
         // this.props.width = width;
         //     .attr('cx', () => Math.random() * width)
         //     .attr('cy', () => Math.random() * height);
-    }
+    // }
 
-    chart = (svg, width, height, data, onDatapointClick) => {
+    chart = (svg, width, height, data, onDatapointClick, fontColor) => {
         // const width = 600;
         const radius = width / 6
 
@@ -125,9 +130,10 @@ class D3Component {
             .selectAll('text')
             .data(root.descendants().slice(1))
             .join('text')
-            .attr('dy', '0.35em')
+            .attr('dy', '0.35rem')
             .attr('fill-opacity', (d) => +labelVisible(d.current))
             .attr('transform', (d) => labelTransform(d.current))
+            .attr('fill', fontColor)
             .text((d) => d.data.name)
 
         const parent = g

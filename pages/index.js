@@ -48,7 +48,7 @@ const Index = () => {
     }, [user, router])
 
     return (
-    <Box>
+    <Box mt='36'>
         <Center>
             <Link href="/auth">
                 <Button p={5} size={'lg'} color={'blue.100'} bg={'gray.700'}>
