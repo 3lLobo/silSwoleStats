@@ -2,7 +2,9 @@
 
 An MVP WebApp to track Sil's clients Swoleness.
 
-[![Wallaby.js](https://img.shields.io/badge/wallaby.js-powered-g.svg?style=for-the-badge&logo=github)](https://wallabyjs.com/oss/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3b5d21b5-8fbc-4e96-8bf9-d4043e0f2db5/deploy-status)](https://app.netlify.com/sites/swolestats/deploys)
+
+[![Wallaby.js](https://img.shields.io/badge/wallaby.js-powered-g.svg?logo=github)](https://wallabyjs.com/oss/)
 
 This page shall have double sided purpose:
 
@@ -19,6 +21,8 @@ Mockup data should be weight, big lifts and waist measurements for client data a
 1. Set up Auth with Google and LinkedIn
 1. Populate with dummy data
 1. Plot with D3
+
+Idea: Get food-data from the [MyFitnessPallApi](https://myfitnesspalapi.com/).
 
 ## Setup-so-far
 
@@ -103,3 +107,5 @@ Changing or adding Fonts to the NextJS website:
             },
         }}}
 ```
+
+Set up an Auth Api with [Google](https://support.google.com/googleapi/answer/6158849?hl=en).

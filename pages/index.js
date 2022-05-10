@@ -16,10 +16,6 @@
 
 */
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
-
-import AuthNavbar from '../components/Navbars/AuthNavbar.js'
-
 import { useUser } from '../hooks/authUser'
 import {
     useDisclosure,
@@ -31,6 +27,8 @@ import {
     Hide,
     Heading,
     Button,
+    Link,
+    ButtonGroup,
 } from '@chakra-ui/react'
 import { AuthRedirect } from '../hooks/authUser.js'
 import { useRouter } from 'next/router'
@@ -41,17 +39,26 @@ const Index = () => {
     const { user } = useUser()
     const router = useRouter()
 
-    console.log(user)
-
     useEffect(() => {
         if (user) {
             router.push('/admin/dashboard')
         } else {
-            router.push('/auth/login')
+            router.push('/auth')
         }
     }, [user, router])
 
-    return <Box></Box>
+    return (
+    <Box>
+        <Center>
+            <Link href="/auth">
+                <Button p={5} size={'lg'} color={'blue.100'} bg={'gray.700'}>
+                    {' '}
+                    Login{' '}
+                </Button>
+            </Link>
+        </Center>
+    </Box>
+    )
 }
 
 export default Index
