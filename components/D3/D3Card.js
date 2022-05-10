@@ -1,6 +1,6 @@
 import { Box, Text, AspectRatio, useStyleConfig, useColorModeValue } from '@chakra-ui/react'
-import D3component from './sunclass'
 import { useState, useEffect, useRef } from 'react'
+
 
 export default function D3Card({ cardWidth, d3component }) {
     // const onClickFunction = onSunburstClick
@@ -40,6 +40,7 @@ export default function D3Card({ cardWidth, d3component }) {
 
     function onClick(e, p) {
         console.log('Click', p)
+        
         setActive(p.data.name + '   ' + p.value.toString())
     }
 
