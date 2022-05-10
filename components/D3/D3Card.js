@@ -43,7 +43,7 @@ export default function D3Card({ cardWidth, d3component }) {
     function onClick(e, p) {
         console.log('Click', p)
 
-        setActive(p.data.name + '   ' + p.value.toString())
+        setActive(p.data.name + ': ' + p.value.toString())
     }
 
     function initVis() {
@@ -71,6 +71,7 @@ export default function D3Card({ cardWidth, d3component }) {
         <Box
             // __css={styles}
             display="flex"
+            fontSize='xs'
             flexDirection="column"
             width="100%"
             position="relative"
@@ -90,8 +91,9 @@ export default function D3Card({ cardWidth, d3component }) {
                 p="3"
                 mb="22"
                 textAlign="center"
+                fontSize='2xl'
             >
-                {active || 'none'}
+                {active || '*select a datapoint*'}
             </Text>
             <AspectRatio maxWidth={svgWidth} ratio={1}>
                 {/* <div ref={refElement} /> */}
