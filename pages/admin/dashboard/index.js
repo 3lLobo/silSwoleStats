@@ -110,7 +110,7 @@ export default function Dashboard() {
                 {/* <Sunburst data={flairData} /> */}
                 {/* <D3Chart /> */}
                 <Box ref={boxref}>
-                    <D3Dynamic cardWidth={cardWidth} d3component={D3Sunburst} />
+                    {cardWidth && <D3Dynamic cardWidth={cardWidth} d3component={D3Sunburst} /> }
                 </Box>
             </Grid>
             {/* <Grid

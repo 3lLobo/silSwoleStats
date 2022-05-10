@@ -2,22 +2,24 @@ import { Box, Text, AspectRatio, useStyleConfig, useColorModeValue } from '@chak
 import { useState, useEffect, useRef } from 'react'
 
 
+// let vis
 export default function D3Card({ cardWidth, d3component }) {
     // const onClickFunction = onSunburstClick
-    let vis
     const svgBoxBg = useColorModeValue('white', 'gray.700')
+    const svgFontColor = useColorModeValue('black', 'whitesmoke')
 
     const [data, setData] = useState(null)
     const boxref = useRef()
     const paddingBox = 22
     const [svgWidth, setSvgWidth] = useState(cardWidth - 2 * paddingBox)
+    const [vis, setVis] = useState()
 
     useEffect(() => {
-            async function fetchApi() {
-                const resFlare = await (await fetch('/api/flareData')).json()
-                setData(resFlare.flareData)
-            }
-            fetchApi()
+        async function fetchApi() {
+            const resFlare = await (await fetch('/api/flareData')).json()
+            setData(resFlare.flareData)
+        }
+        fetchApi()
         // fetchData()
     }, [])
 
@@ -30,8 +32,8 @@ export default function D3Card({ cardWidth, d3component }) {
 
     // useEffect(fetchData, [])
     // useEffect(handleResizeEvent, []);
-    useEffect(initVis, [data])
-    useEffect(updateVisOnResize, [svgWidth])
+    useEffect(initVis, [data, svgWidth, svgFontColor])
+    // useEffect(updateVisOnResize, [svgWidth, svgFontColor])
 
     // function fetchData() {
     //     Promise.resolve(fetch('/api/flareData')).then((res) => setData(res.json().flareData))
@@ -40,7 +42,7 @@ export default function D3Card({ cardWidth, d3component }) {
 
     function onClick(e, p) {
         console.log('Click', p)
-        
+
         setActive(p.data.name + '   ' + p.value.toString())
     }
 
@@ -52,15 +54,18 @@ export default function D3Card({ cardWidth, d3component }) {
                     width: svgWidth,
                     height: svgWidth,
                     onDatapointClick: onClick,
+                    fontColor: svgFontColor,
                 }
-                vis = new d3component(refElement.current, d3Props)
+                // vis = new d3component(refElement.current, d3Props)
+                setVis(() => new d3component(refElement.current, d3Props))
             }
         }
     }
 
-    function updateVisOnResize() {
-        vis && vis.resize(svgWidth, svgWidth)
-    }
+    // function updateVisOnResize() {
+    //     console.log("updateVisOnResize")
+    //     vis && vis.resize(svgWidth, svgWidth)
+    // }
 
     return (
         <Box
@@ -97,6 +102,8 @@ export default function D3Card({ cardWidth, d3component }) {
                         width: svgWidth,
                         marginRight: '0px',
                         marginLeft: '0px',
+                        fontWeight: 'lighter',
+                        fontColor: svgFontColor,
                     }}
                 >
                     <g id="2" data-name="2"></g>
