@@ -1,4 +1,4 @@
-import { Box, Text, AspectRatio, useStyleConfig, useColorModeValue } from '@chakra-ui/react'
+import { Box, Text, AspectRatio, useStyleConfig, useColorModeValue, Heading } from '@chakra-ui/react'
 import { useState, useEffect, useRef } from 'react'
 
 
@@ -85,13 +85,19 @@ export default function D3Card({ cardWidth, d3component }) {
             ref={boxref}
         >
             <Text
+            // textAlign="center"
+            fontSize='2xl'            
+            > 
+            Mealplan kcal
+            </Text>
+            <Text
                 fontFamily="Helvetica"
-                bg="teal.300"
+                bg="rgba(245, 245, 245, 0.07)"
                 rounded="full"
-                p="3"
-                mb="22"
-                textAlign="center"
-                fontSize='2xl'
+                px="3"
+                my="11"
+                // textAlign="center"
+                fontSize='xl'
             >
                 {active || '*select a datapoint*'}
             </Text>
