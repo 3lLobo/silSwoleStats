@@ -31,8 +31,8 @@ var routes = [
         layout: '/admin',
     },
     {
-        path: '/tables',
-        name: 'Tables',
+        path: '/checkin',
+        name: 'CheckIn',
         icon: <StatsIcon color="inherit" />,
         layout: '/admin',
     },

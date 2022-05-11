@@ -8,22 +8,11 @@ import { Box } from '@chakra-ui/react'
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-function BarChart(props) {
-    const [data, setData] = useState()
-    const [options, setOptions] = useState()
-
-    useEffect(() => {
-        async function fetchApi() {
-            const res = await (await fetch('/api/charts')).json()
-            setData(res.barChartData)
-            setOptions(res.barChartOptions)
-        }
-        fetchApi()
-    }, [])
-
+function BarChart({data, options}) {
+    
     return (
         <Box>
-            {data ? (
+            {/* {data ? ( */}
                 <Card
                     py="1rem"
                     height={{ sm: '200px' }}
@@ -33,9 +22,9 @@ function BarChart(props) {
                 >
                     <Chart options={options} series={data} type="bar" width="100%" height="100%" />
                 </Card>
-            ) : (
+            {/* ) : (
                 <Box />
-            )}
+            )} */}
         </Box>
     )
 }

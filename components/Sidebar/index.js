@@ -31,7 +31,7 @@ function Sidebar(props) {
     // SIDEBAR
     return (
         <Box ref={mainPanel}>
-            {user && (
+            {true && (
                 <Box display={{ sm: 'none', xl: 'block' }} position="fixed">
                     <Box
                         bg={sidebarBg}

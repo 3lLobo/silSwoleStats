@@ -51,7 +51,6 @@ export function Sunburst({ data }) {
             width="100%"
             position="relative"
             minWidth="0px"
-            wordWrap="break-word"
             backgroundClip="border-box"
             boxShadow="0px 3.5px 5.5px rgba(0, 0, 0, 0.02)"
             borderRadius="15px"
