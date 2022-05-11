@@ -1,5 +1,6 @@
 import { Box, Text, AspectRatio, useStyleConfig, useColorModeValue, Heading } from '@chakra-ui/react'
 import { useState, useEffect, useRef } from 'react'
+import * as d3 from 'd3'
 
 
 // let vis
@@ -31,8 +32,12 @@ export default function D3Card({ cardWidth, d3component }) {
     const refElement = useRef(null)
 
     // useEffect(fetchData, [])
-    // useEffect(handleResizeEvent, []);
-    useEffect(initVis, [data, svgWidth, svgFontColor])
+    useEffect(initVis, [data, svgWidth,])
+
+    useEffect(() => {
+        console.log(svgFontColor)
+        d3.selectAll('svg#sunburst').selectAll('text').style('fill', svgFontColor);
+    }, [svgFontColor])
     // useEffect(updateVisOnResize, [svgWidth, svgFontColor])
 
     // function fetchData() {
@@ -56,27 +61,25 @@ export default function D3Card({ cardWidth, d3component }) {
                     onDatapointClick: onClick,
                     fontColor: svgFontColor,
                 }
-                // vis = new d3component(refElement.current, d3Props)
-                setVis(() => new d3component(refElement.current, d3Props))
+                if (!vis) {
+                    setVis(() => new d3component(refElement.current, d3Props))
+                } else {
+                    vis.updateDatapoints(d3Props)
+                }
             }
         }
     }
 
-    // function updateVisOnResize() {
-    //     console.log("updateVisOnResize")
-    //     vis && vis.resize(svgWidth, svgWidth)
-    // }
 
     return (
         <Box
             // __css={styles}
-            display="flex"
+            // display="flex"
             fontSize='xs'
             flexDirection="column"
             width="100%"
             position="relative"
             minWidth="0px"
-            wordWrap="break-word"
             backgroundClip="border-box"
             boxShadow="0px 3.5px 5.5px rgba(0, 0, 0, 0.02)"
             borderRadius="15px"
@@ -96,8 +99,11 @@ export default function D3Card({ cardWidth, d3component }) {
                 rounded="full"
                 px="3"
                 my="11"
+                // width="min"
+                maxWidth='initial'
                 // textAlign="center"
-                fontSize='xl'
+                // fontSize='xl'
+                fontWeight='bold'
             >
                 {active || '*select a datapoint*'}
             </Text>
@@ -106,8 +112,8 @@ export default function D3Card({ cardWidth, d3component }) {
                 <svg
                     ref={refElement}
                     style={{
-                        height: svgWidth,
-                        width: svgWidth,
+                        // height: svgWidth,
+                        // width: svgWidth,
                         marginRight: '0px',
                         marginLeft: '0px',
                         fontWeight: 'lighter',

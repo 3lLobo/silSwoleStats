@@ -7,26 +7,17 @@ import { Box } from '@chakra-ui/react'
 
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-function LineChart() {
-    const [data, setData] = useState()
-    const [options, setOptions] = useState()
-
-    useEffect(() => {
-        async function fetchApi() {
-            const res = await (await fetch('/api/charts')).json()
-            setData(res.lineChartData)
-            setOptions(res.lineChartOptions)
-        }
-        fetchApi()
-    }, [])
+function LineChart({data, options}) {
+    
 
     return (
-        <Box>
-            {data ? (
+        <Box
+        >
+            {/* {data ? ( */}
                 <ApexChart options={options} series={data} type="area" width="100%" height="100%" />
-            ) : (
+            {/* ) : (
                 <Box />
-            )}
+            )} */}
         </Box>
     )
 }

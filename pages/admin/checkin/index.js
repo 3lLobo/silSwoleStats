@@ -5,7 +5,7 @@ import Authors from '/components/Admin/Tables/components/Authors'
 import Projects from '/components/Admin/Tables/components/Projects'
 import { tablesTableData, dashboardTableData } from '../../../variables/general'
 
-function Tables() {
+function CheckIn() {
     return (
         <Flex direction="column" pt={{ base: '120px', md: '75px' }}>
             {/* <Authors
@@ -22,4 +22,4 @@ function Tables() {
     )
 }
 
-export default Tables
+export default CheckIn

@@ -4,6 +4,7 @@ class D3Component {
     containerEl
     props
     svg
+    inited
 
     constructor(containerEl, props) {
         this.containerEl = containerEl
@@ -12,29 +13,23 @@ class D3Component {
         this.svg = d3
             .select(containerEl)
             .append('svg')
+            .attr('id', 'sunburst')
             .attr('width', width)
             .attr('height', height)
 
-        this.updateDatapoints()
+        this.updateDatapoints(props)
+        console.log("CONSTRUCTED")
     }
 
-    updateDatapoints = () => {
-        console.log("Updateinggg")
-        const {
-            svg,
-            props: { data, width, height, onDatapointClick, fontColor },
-        } = this
-        d3.selectAll('svg > g').remove()
-        this.svg = this.chart(svg, width, height, data, onDatapointClick, fontColor)
-        // svg.selectAll('circle')
-        //     .data(data)
-        //     .enter()
-        //     .append('circle')
-        //     .style('fill', 'red')
-        //     .attr('cx', () => Math.random() * width)
-        //     .attr('cy', () => Math.random() * height)
-        //     .attr('r', 10)
-        //     .on('mouseup', (d, i, nodes) => console.log(d, i, nodes)); // this.setActiveDatapoint(d, nodes[i]));
+    updateDatapoints = (props) => {
+        console.log("Updating SVG")
+        const svg = this.svg
+        const { data, width, height, onDatapointClick, fontColor } = props
+
+        const selection = d3.selectAll('svg#sunburst > g')
+        selection.remove().exit()
+
+        this.chart(svg, width, height, data, onDatapointClick, fontColor)
     }
 
     setActiveDatapoint = (e, d) => {
@@ -42,30 +37,6 @@ class D3Component {
         this.props.onDatapointClick(e, d)
     }
 
-    // resize = (width, height) => {
-    //     const {
-    //         svg,
-    //         props: { data, width: oldWidth, onDatapointClick },
-    //     } = this
-    //     const scaleVal = Math.sqrt(Math.floor((width / oldWidth) * 100) / 100)
-    //     console.log('THIS width', scaleVal)
-
-    //     this.props.width = width;
-    //     this.props.height = height;
-    //     // this.props.fontColor = fontColor;
-    //     d3.selectAll('svg > g').remove()
-    //     // svg.remove();
-    //     svg.attr('width', width).attr('height', height)
-    //     this.svg = this.chart(svg, width, height, data, onDatapointClick)
-        //     svg.selectAll('g')
-        //     .attr('height', height)
-        //     .attr("r", width / 6)
-        //     // .attr("transform", `scale(${width / oldWidth})`)
-        //     .attr("transform", `translate(${width / 4},${width / 4}) scale(${scaleVal})`);
-        // this.props.width = width;
-        //     .attr('cx', () => Math.random() * width)
-        //     .attr('cy', () => Math.random() * height);
-    // }
 
     chart = (svg, width, height, data, onDatapointClick, fontColor) => {
         // const width = 600;

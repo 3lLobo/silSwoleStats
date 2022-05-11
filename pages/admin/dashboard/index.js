@@ -12,10 +12,21 @@ import dynamic from 'next/dynamic'
 
 const D3Dynamic = dynamic(() => import('/components/D3/D3Card'), { ssr: false })
 
+
+
 export default function Dashboard() {
+
     const iconBoxInside = useColorModeValue('white', 'white')
     const boxref = useRef()
     const [cardWidth, setCardWidth] = useState()
+    const [data, setData] = useState()
+    useEffect(() => {
+        async function fetchApi() {
+            const res = await (await fetch('/api/charts')).json()
+            setData(res)
+        }
+        fetchApi()
+    }, [])
 
     useEffect(() => {
         function handleResizeEvent() {
@@ -40,7 +51,7 @@ export default function Dashboard() {
     return (
         <Flex
             flexDirection="column"
-            // pt={{ base: "120px", md: "75px" }}
+        // pt={{ base: "120px", md: "75px" }}
         >
             {/* <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
         <MiniStatistics
@@ -101,18 +112,23 @@ export default function Dashboard() {
                 gap="11"
                 mb={{ lg: '26px' }}
             >
-                <ActiveUsers title={'Big4 Lifts'} percentage={6} chart={<BarChart />} />
-                <SalesOverview
-                    title={'Weight & Body Fat %'}
-                    percentage={11}
-                    chart={<LineChart />}
-                />
+                {data &&
+                    <ActiveUsers title={'Big4 Lifts'}
+                        percentage={6}
+                        chart={<BarChart data={data.barChartData} options={data.barChartOptions} />}
+                    />}
+                {data &&
+                    <SalesOverview
+                        title={'Weight & Body Fat %'}
+                        percentage={11}
+                        chart={<LineChart data={data.lineChartData} options={data.lineChartOptions} />}
+                    />}
                 {/* <Sunburst data={flairData} /> */}
                 {/* <D3Chart /> */}
-                <Box ref={boxref}>
-                    {cardWidth && <D3Dynamic cardWidth={cardWidth} d3component={D3Sunburst} /> }
-                </Box>
             </Grid>
+            <Box ref={boxref}>
+                {cardWidth && <D3Dynamic cardWidth={cardWidth} d3component={D3Sunburst} />}
+            </Box>
             {/* <Grid
         templateColumns={{ sm: "1fr", md: "1fr 1fr", lg: "2fr 1fr" }}
         templateRows={{ sm: "1fr auto", md: "1fr", lg: "1fr" }}

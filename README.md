@@ -75,10 +75,16 @@ Browsing the web we got along two different methods. Both rely on passing the D3
 
 On LinkedIn I saw a workshop video of a lady who also wrote a book on how to integrate D3 in React. Can't find it anymore 🙄
 
+-   Found it again! -
+
+Here is a [blog](https://wattenberger.com/blog/react-and-d3) with refference to her book. Seems like she goes all the way to render the single SVG path in React and let D3 only do the Data modifications/calculations. Makes sense tho!
+
+Selecting SVGs with d3.selecAll() is tricky, it will select all svg elements on the page, not only the current. To select a specific one, add the `.attr('id', '<id>')` and select it with `d3.selectAll(svg#id)`.
+
 TODO:
 
--   how to change the `<svg />` font and color.
--   pull data out of the chart to React
+-   how to change the `<svg />` font and color. ✅
+-   pull data out of the chart to React ✅
 
 ## Notes 2 myself
 

@@ -6,7 +6,6 @@ const Card = {
         width: '100%',
         position: 'relative',
         minWidth: '0px',
-        wordWrap: 'break-word',
         backgroundClip: 'border-box',
     },
     variants: {
